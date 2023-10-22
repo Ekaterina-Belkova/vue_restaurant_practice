@@ -4,7 +4,10 @@
     <div class="basket">
       <span class="items">3 товара
 на сумму 3 500 ₽</span>
-      <busketIcon />
+
+      <router-link to="/basket">
+        <busketIcon />
+      </router-link>
     </div>
   </header>
 </template>
