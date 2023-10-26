@@ -1,66 +1,18 @@
 <template>
   <main class="main">
     <CardProduct
-      :urlImg="require('../../assets/item-one.png')"
-      item="Устрицы по рокфеллеровски"
-      description="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры"
-      price="2 700 ₽"
-    />
-
-    <CardProduct
-      :urlImg="require('../../assets/item-two.png')"
-      item="Свиные ребрышки на гриле с зеленью"
-      description="Не следует, однако забывать, что реализация намеченных плановых"
-      price="1 600 ₽"
-    />
-
-    <CardProduct
-      :urlImg="require('../../assets/item-three.png')"
-      item="Креветки по-королевски
-в лимонном соке"
-      description="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу"
-      price="1 820 ₽"
-    />
-
-    <CardProduct
-      :urlImg="require('../../assets/item-one.png')"
-      item="Устрицы по рокфеллеровски"
-      description="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры"
-      price="2 700 ₽"
-    />
-
-    <CardProduct
-      :urlImg="require('../../assets/item-one.png')"
-      item="Устрицы по рокфеллеровски"
-      description="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры"
-      price="2 700 ₽"
-    />
-
-    <CardProduct
-      :urlImg="require('../../assets/item-two.png')"
-      item="Свиные ребрышки на гриле с зеленью"
-      description="Не следует, однако забывать, что реализация намеченных плановых"
-      price="1 600 ₽"
-    />
-
-    <CardProduct
-      :urlImg="require('../../assets/item-three.png')"
-      item="Креветки по-королевски
-в лимонном соке"
-      description="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу"
-      price="1 820 ₽"
-    />
-
-    <CardProduct
-      :urlImg="require('../../assets/item-one.png')"
-      item="Устрицы по рокфеллеровски"
-      description="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры"
-      price="2 700 ₽"
-    />
+      v-for="(card, idx) in cardsArr"
+      :key="idx"
+      :urlImg="card.url"
+      :item="card.item"
+      :description="card.description"
+      :price="card.price"
+    ></CardProduct>
   </main>
 </template>
 
 <script>
+import { ref } from 'vue'
 import CardProduct from '@/components/elements/CardProduct'
 
 export default {
@@ -71,6 +23,68 @@ export default {
   props: {
   },
   setup () {
+    const cardsArr = ref([
+      {
+        id: 1,
+        url: require('../../assets/item-one.png'),
+        item: 'Устрицы по рокфеллеровски',
+        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
+        price: 2700
+      },
+      {
+        id: 2,
+        url: require('../../assets/item-two.png'),
+        item: 'Свиные ребрышки на гриле с зеленью',
+        description: 'Не следует, однако забывать, что реализация намеченных плановых',
+        price: 1600
+      },
+      {
+        id: 3,
+        url: require('../../assets/item-three.png'),
+        item: 'Креветки по-королевски в лимонном соке',
+        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу',
+        price: 1820
+      },
+      {
+        id: 4,
+        url: require('../../assets/item-one.png'),
+        item: 'Устрицы по рокфеллеровски',
+        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
+        price: 2700
+      },
+      {
+        id: 5,
+        url: require('../../assets/item-one.png'),
+        item: 'Устрицы по рокфеллеровски',
+        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
+        price: 2700
+      },
+      {
+        id: 6,
+        url: require('../../assets/item-two.png'),
+        item: 'Свиные ребрышки на гриле с зеленью',
+        description: 'Не следует, однако забывать, что реализация намеченных плановых',
+        price: 1600
+      },
+      {
+        id: 7,
+        url: require('../../assets/item-three.png'),
+        item: 'Креветки по-королевски в лимонном соке',
+        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу',
+        price: 1820
+      },
+      {
+        id: 8,
+        url: require('../../assets/item-one.png'),
+        item: 'Устрицы по рокфеллеровски',
+        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
+        price: 2700
+      }
+    ])
+
+    return {
+      cardsArr
+    }
   }
 }
 </script>

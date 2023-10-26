@@ -5,6 +5,6 @@ import store from './store'
 
 import '../src/assets/css/reset.css'
 import '../src/assets/css/base.css'
-// import './src/assets/css/fonts.css'
+import '../src/assets/css/fonts.css'
 
 createApp(App).use(store).use(router).mount('#app')

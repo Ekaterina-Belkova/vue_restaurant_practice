@@ -3,7 +3,7 @@
     <h2 class="title">НАША ПРОДУКЦИЯ</h2>
     <div class="basket">
       <span class="items">3 товара
-на сумму 3 500 ₽</span>
+      <br>на сумму 3 500 ₽</span>
 
       <router-link to="/basket">
         <busketIcon />

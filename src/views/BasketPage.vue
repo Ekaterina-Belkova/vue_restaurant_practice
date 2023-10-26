@@ -1,12 +1,20 @@
 <template>
-  <div class="basket">
-
+  <header>
+    <div class="basket">
     <router-link to="/">
       Вернуться назад
     </router-link>
-
     Страница с корзиной
-  </div>
+    </div>
+  </header>
+
+  <main>
+    u
+  </main>
+
+  <footer>
+    u
+  </footer>
 </template>
 
 <script>
