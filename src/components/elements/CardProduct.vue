@@ -9,21 +9,21 @@
       {{ description }}
     </span>
 
-    <span class="price">
+    <span class="card__footer">
       {{ price }}
 
-      <addIcon />
+      <AddButton @click="addToCard"/>
     </span>
   </div>
 </template>
 
 <script>
-import addIcon from '@/components/icons/addIcon.vue'
+import AddButton from '@/components/ui/AddButton.vue'
 
 export default {
   name: 'CardProduct',
   components: {
-    addIcon
+    AddButton
   },
   props: {
     urlImg: {
@@ -44,6 +44,12 @@ export default {
     }
   },
   setup () {
+    const addToCard = () => {
+      console.log('Клик по кнопке произошел')
+    }
+    return {
+      addToCard
+    }
   }
 }
 </script>
@@ -74,12 +80,16 @@ export default {
   font-weight: 400;
 }
 
-.price {
+.card__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   font-size: 17px;
   font-weight: 500;
+}
+
+.item.description.card__footer:hover {
+    color: #D58C51;
 }
 </style>

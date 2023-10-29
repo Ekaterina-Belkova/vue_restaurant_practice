@@ -26,56 +26,56 @@ export default {
     const cardsArr = ref([
       {
         id: 1,
-        url: require('../../assets/item-one.png'),
+        url: require('@/assets/item-one.png'),
         item: 'Устрицы по рокфеллеровски',
         description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
         price: 2700
       },
       {
         id: 2,
-        url: require('../../assets/item-two.png'),
+        url: require('@/assets/item-two.png'),
         item: 'Свиные ребрышки на гриле с зеленью',
         description: 'Не следует, однако забывать, что реализация намеченных плановых',
         price: 1600
       },
       {
         id: 3,
-        url: require('../../assets/item-three.png'),
+        url: require('@/assets/item-three.png'),
         item: 'Креветки по-королевски в лимонном соке',
         description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу',
         price: 1820
       },
       {
         id: 4,
-        url: require('../../assets/item-one.png'),
+        url: require('@/assets/item-one.png'),
         item: 'Устрицы по рокфеллеровски',
         description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
         price: 2700
       },
       {
         id: 5,
-        url: require('../../assets/item-one.png'),
+        url: require('@/assets/item-one.png'),
         item: 'Устрицы по рокфеллеровски',
         description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
         price: 2700
       },
       {
         id: 6,
-        url: require('../../assets/item-two.png'),
+        url: require('@/assets/item-two.png'),
         item: 'Свиные ребрышки на гриле с зеленью',
         description: 'Не следует, однако забывать, что реализация намеченных плановых',
         price: 1600
       },
       {
         id: 7,
-        url: require('../../assets/item-three.png'),
+        url: require('@/assets/item-three.png'),
         item: 'Креветки по-королевски в лимонном соке',
         description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу',
         price: 1820
       },
       {
         id: 8,
-        url: require('../../assets/item-one.png'),
+        url: require('@/assets/item-one.png'),
         item: 'Устрицы по рокфеллеровски',
         description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
         price: 2700
@@ -96,8 +96,8 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 35px 20px;
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
 }
 
 </style>
