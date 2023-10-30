@@ -10,7 +10,7 @@
   </header>
 
   <main class="basketmain">
-    u
+    {{ basketProducts }}
   </main>
 
   <footer class="basketfooter">
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import GoBackBtn from '@/components/ui/GoBackBtn.vue'
 import OrderButton from '@/components/ui/OrderButton.vue'
 
@@ -38,6 +40,15 @@ export default {
   props: {
   },
   setup () {
+    const store = useStore()
+
+    const basketProducts = computed(() => {
+      return store.getters.getBasketProducts
+    })
+
+    return {
+      basketProducts
+    }
   }
 }
 </script>

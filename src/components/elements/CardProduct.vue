@@ -12,7 +12,8 @@
     <span class="card__footer">
       {{ price }}
 
-      <AddButton @click="addToCard"/>
+      <AddButton
+      @click="$emit('click-plus')"/>
     </span>
   </div>
 </template>
@@ -44,14 +45,9 @@ export default {
     }
   },
   setup () {
-    const addToCard = () => {
-      console.log('Клик по кнопке произошел')
-    }
-    return {
-      addToCard
-    }
   }
 }
+
 </script>
 
 <style lang="scss" scoped>

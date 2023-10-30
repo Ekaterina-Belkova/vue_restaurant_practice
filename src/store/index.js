@@ -1,5 +1,8 @@
 import { createStore } from 'vuex'
 
+import home from './modules/home.js'
+import basket from './modules/basket.js'
+
 export default createStore({
   state: {
   },
@@ -10,5 +13,7 @@ export default createStore({
   actions: {
   },
   modules: {
+    home,
+    basket
   }
 })

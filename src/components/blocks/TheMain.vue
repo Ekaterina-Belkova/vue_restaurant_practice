@@ -1,18 +1,21 @@
 <template>
   <main class="main">
     <CardProduct
-      v-for="(card, idx) in cardsArr"
+      v-for="(card, idx) in products"
       :key="idx"
       :urlImg="card.url"
       :item="card.item"
       :description="card.description"
       :price="card.price"
+      @click-plus="addCardtoBasket(card.id)"
     ></CardProduct>
   </main>
 </template>
 
 <script>
 import { ref } from 'vue'
+import { useStore } from 'vuex'
+
 import CardProduct from '@/components/elements/CardProduct'
 
 export default {
@@ -23,7 +26,9 @@ export default {
   props: {
   },
   setup () {
-    const cardsArr = ref([
+    const store = useStore()
+
+    const products = ref([
       {
         id: 1,
         url: require('@/assets/item-one.png'),
@@ -82,8 +87,12 @@ export default {
       }
     ])
 
+    const addCardtoBasket = (val) => {
+      store.commit('SetPushBasketProducts', val)
+    }
     return {
-      cardsArr
+      products,
+      addCardtoBasket
     }
   }
 }
@@ -96,6 +105,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 35px 20px;
+  justify-content: center
   // width: 100vw;
   // height: 100vh;
 }

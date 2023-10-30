@@ -1,18 +1,27 @@
 <template>
   <header class="header">
-    <h2 class="title">НАША ПРОДУКЦИЯ</h2>
+    <h2 class="title">
+      НАША ПРОДУКЦИЯ
+    </h2>
+
     <div class="basket">
-      <span class="items">3 товара
-      <br>на сумму 3 500 ₽</span>
+      <span class="items">
+        {{ basketProducts.length }} товара
+        <br>на сумму 3 500 ₽
+      </span>
 
       <router-link to="/basket">
         <busketIcon />
       </router-link>
     </div>
+
   </header>
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
 import busketIcon from '@/components/icons/busketIcon.vue'
 
 export default {
@@ -23,6 +32,15 @@ export default {
   props: {
   },
   setup () {
+    const store = useStore()
+
+    const basketProducts = computed(() => {
+      return store.getters.getBasketProducts
+    })
+
+    return {
+      basketProducts
+    }
   }
 }
 </script>
