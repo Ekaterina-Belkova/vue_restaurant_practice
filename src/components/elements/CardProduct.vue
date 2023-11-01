@@ -3,19 +3,39 @@
     'card': true,
     'card_basket': basket
   }">
-    <img :src="urlImg" alt="" class="preview">
-    <span class="item">
+    <img :src="urlImg" alt="" :class="{
+      'preview': true,
+      'preview_basket': basket
+    }">
+    <span :class="{
+      'item': true,
+      'item_basket': basket
+    }">
       {{ item }}
     </span>
 
-    <span class="description">
+    <span :class="{
+      'description': true,
+      'description_basket': basket
+    }">
       {{ description }}
     </span>
 
-    <span class="card__footer">
-      {{ price }}
+    <span :class="{
+      'card__footer': true,
+      'card__footer-basket': basket
+    }">
+      <span :class="{
+        'price': true,
+        'price_basket': basket
+      }">
+        {{ price }} ₽
+      </span>
 
       <AddButton
+      :class="{
+      'addbutton': true,
+      'addbutton_basket': basket}"
       @click="$emit('click-plus')"/>
     </span>
   </div>
@@ -76,9 +96,15 @@ export default {
 .card_basket {
   flex-direction: row;
   padding: 10px;
-  width: 750px;
-  height: 150px;
-  // border: none;
+  width: 150vh;
+  height: auto;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.preview_basket {
+  width: 122px;
+  height: 122px;
 }
 
 .item {
@@ -86,9 +112,18 @@ export default {
   font-weight: 500;
 }
 
+.item_basket {
+  position: absolute;
+  z-index: 1;
+}
+
 .description {
   font-size: 14px;
   font-weight: 400;
+}
+
+.description_basket {
+  display: none;
 }
 
 .card__footer {
@@ -100,7 +135,18 @@ export default {
   font-weight: 500;
 }
 
-.item.description.card__footer:hover {
-    color: #D58C51;
+.card__footer-basket {
+  justify-content:flex-end;
+  gap: 15px;
+}
+
+.price_basket {
+  color: #D58C51;
+}
+
+.addbutton__basket {
+  color: #D58C51;
+  border: 2px solid #D58C51;
+  transform: rotate(45deg);
 }
 </style>

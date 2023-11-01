@@ -2,9 +2,8 @@
   <div
     :class="{
       'addbutton': true,
-      'addbutton__close': close
-    }"
-    >
+      'addbutton_basket': basket
+  }">
     +
   </div>
 </template>
@@ -16,9 +15,9 @@ export default {
   components: {
   },
   props: {
-    close: {
+    basket: {
       type: Boolean,
-      default: close
+      default: false
     }
   },
   setup () {
@@ -43,9 +42,10 @@ export default {
   background: #D58C51;
 }
 
-.addbutton__close {
+.addbutton__basket {
   color: #D58C51;
   border: 2px solid #D58C51;
   transform: rotate(45deg);
 }
+
 </style>

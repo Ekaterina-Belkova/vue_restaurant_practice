@@ -7,7 +7,7 @@
       :item="card.item"
       :description="card.description"
       :price="card.price"
-      @click-plus="addCardtoBasket(card.id)"
+      @click-plus="addCardtoBasket(card)"
     ></CardProduct>
   </main>
 </template>
