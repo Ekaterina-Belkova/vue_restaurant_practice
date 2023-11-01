@@ -1,5 +1,8 @@
 <template>
-  <div class="card">
+  <div :class="{
+    'card': true,
+    'card_basket': basket
+  }">
     <img :src="urlImg" alt="" class="preview">
     <span class="item">
       {{ item }}
@@ -42,6 +45,10 @@ export default {
     price: {
       type: String,
       default: ''
+    },
+    basket: {
+      type: Boolean,
+      default: false
     }
   },
   setup () {
@@ -64,6 +71,14 @@ export default {
   color: #FFF;
   font-size: 17px;
   font-weight: 500;
+}
+
+.card_basket {
+  flex-direction: row;
+  padding: 10px;
+  width: 750px;
+  height: 150px;
+  // border: none;
 }
 
 .item {

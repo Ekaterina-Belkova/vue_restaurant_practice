@@ -1,14 +1,14 @@
 export default {
   state: {
-    BasketProducts: []
+    // BasketProducts: []
   },
   getters: {
-    getBasketProducts: state => state.BasketProducts
+    // getBasketProducts: state => state.BasketProducts
   },
   mutations: {
-    SetPushBasketProducts (state, val) {
-      state.BasketProducts.push(val)
-    }
+    // SetPushBasketProducts (state, val) {
+    //   state.BasketProducts.push(val)
+    // }
   },
   actions: {
   }

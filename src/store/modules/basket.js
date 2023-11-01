@@ -3,8 +3,12 @@ export default {
     BasketProducts: []
   },
   getters: {
+    getBasketProducts: state => state.BasketProducts
   },
   mutations: {
+    SetPushBasketProducts (state, val) {
+      state.BasketProducts.push(val)
+    }
   },
   actions: {
   }

@@ -11,6 +11,15 @@
 
   <main class="basketmain">
     {{ basketProducts }}
+    <CardProduct
+      v-for="(card, idx) in basketProducts"
+      :key="idx"
+      :urlImg="card.url"
+      :item="card.item"
+      :description="card.description"
+      :price="card.price"
+      basket
+    ></CardProduct>
   </main>
 
   <footer class="basketfooter">
@@ -28,14 +37,18 @@
 <script>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+
 import GoBackBtn from '@/components/ui/GoBackBtn.vue'
 import OrderButton from '@/components/ui/OrderButton.vue'
+import CardProduct from '@/components/elements/CardProduct'
+// import AddButton from '@/components/ui/AddButton.vue'
 
 export default {
   name: 'BasketPage',
   components: {
     GoBackBtn,
-    OrderButton
+    OrderButton,
+    CardProduct
   },
   props: {
   },
@@ -46,8 +59,13 @@ export default {
       return store.getters.getBasketProducts
     })
 
+    const deleteCardfromBasket = (val) => {
+      console.log(val)
+    }
+
     return {
-      basketProducts
+      basketProducts,
+      deleteCardfromBasket
     }
   }
 }
@@ -74,7 +92,8 @@ export default {
 
 .basketfooter {
   position: fixed;
-  bottom:0;
+  bottom: 0;
+  background-color: #161516;
 }
 
 .basketfooter__line {

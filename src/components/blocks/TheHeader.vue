@@ -1,14 +1,18 @@
 <template>
   <header class="header">
-    <h2 class="title">
+    <h2 class="header__title">
       НАША ПРОДУКЦИЯ
     </h2>
 
-    <div class="basket">
-      <span class="items">
-        {{ basketProducts.length }} товара
-        <br>на сумму 3 500 ₽
-      </span>
+    <div class="header__basket">
+      <div class="header__basket-items">
+        <span class="items">
+          {{ basketProducts.length }} товара
+        </span>
+        <span class="items">
+          на сумму {{ basketSum }} ₽
+        </span>
+      </div>
 
       <router-link to="/basket">
         <busketIcon />
@@ -38,8 +42,17 @@ export default {
       return store.getters.getBasketProducts
     })
 
+    const basketSum = computed(() => {
+      let sum = 0
+      basketProducts.value.forEach(elements => {
+        sum += elements.price
+      })
+      return sum
+    })
+
     return {
-      basketProducts
+      basketProducts,
+      basketSum
     }
   }
 }
@@ -54,16 +67,17 @@ export default {
   height: 100px;
 }
 
-.basket {
+.header__title {
+  color: #FFF;
+  font-size: 31px;
+  font-weight: 700;
+}
+
+.header__basket {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 20px;
-}
-.title {
-  color: #FFF;
-  font-size: 31px;
-  font-weight: 700;
 }
 
 .items {

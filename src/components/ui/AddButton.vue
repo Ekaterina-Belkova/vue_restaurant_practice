@@ -1,5 +1,10 @@
 <template>
-  <div class="addbutton">
+  <div
+    :class="{
+      'addbutton': true,
+      'addbutton__close': close
+    }"
+    >
     +
   </div>
 </template>
@@ -11,6 +16,10 @@ export default {
   components: {
   },
   props: {
+    close: {
+      type: Boolean,
+      default: close
+    }
   },
   setup () {
   }
@@ -32,5 +41,11 @@ export default {
 
 .addbutton:hover {
   background: #D58C51;
+}
+
+.addbutton__close {
+  color: #D58C51;
+  border: 2px solid #D58C51;
+  transform: rotate(45deg);
 }
 </style>
