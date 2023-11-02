@@ -19,6 +19,7 @@
       :description="card.description"
       :price="card.price"
       basket
+      @click-plus="addCardtoBasket(card)"
     ></CardProduct>
   </main>
 
@@ -26,9 +27,14 @@
     <hr class="basketfooter__line">
 
     <div class="basketfooter__container">
-      <h3 class="basketfooter__total">
-        Заказ на сумму:
-      </h3>
+      <span class="basketfooter__container-total">
+        <h3 class="bbasketfooter__container-total__title">
+          Заказ на сумму:
+        </h3>
+        <h3 class="basketfooter__container-total__title">
+          {{ basketSum }} ₽
+        </h3>
+      </span>
       <OrderButton />
     </div>
   </footer>
@@ -63,9 +69,18 @@ export default {
       console.log(val)
     }
 
+    const basketSum = computed(() => {
+      let sum = 0
+      basketProducts.value.forEach(elements => {
+        sum += elements.price
+      })
+      return sum
+    })
+
     return {
       basketProducts,
-      deleteCardfromBasket
+      deleteCardfromBasket,
+      basketSum
     }
   }
 }
@@ -92,6 +107,7 @@ export default {
 
 .basketfooter {
   position: fixed;
+  z-index: 2;
   bottom: 0;
   background-color: #161516;
 }
@@ -108,11 +124,19 @@ export default {
   align-items: center;
   padding-right: 15vw;
 }
-.basketfooter__total {
+
+.basketfooter__container-total {
+  display:flex;
+  align-items: baseline;
   padding: 28px 0 35px 15vw;
   color: #fff;
+  gap: 16px;
+}
+
+.basketfooter__container-total__title {
   text-transform: uppercase;
   font-size: 21px;
   font-weight: 400;
+  color: #D58C51;
 }
 </style>

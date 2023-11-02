@@ -33,10 +33,10 @@
       </span>
 
       <AddButton
-      :class="{
-      'addbutton': true,
-      'addbutton_basket': basket}"
-      @click="$emit('click-plus')"/>
+        :class="{
+        'addbutton': true,
+        'addbutton_basket': basket }"
+        @click="$emit('click-plus')"/>
     </span>
   </div>
 </template>
@@ -91,6 +91,12 @@ export default {
   color: #FFF;
   font-size: 17px;
   font-weight: 500;
+}
+
+.card:hover {
+.item, .description, .price {
+    color: #D58C51;
+  }
 }
 
 .card_basket {
