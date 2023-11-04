@@ -10,7 +10,7 @@
   </header>
 
   <main class="basketmain">
-    {{ basketProducts }}
+    <!-- {{ basketProducts }} -->
     <CardProduct
       v-for="(card, idx) in basketProducts"
       :key="idx"
@@ -19,7 +19,7 @@
       :description="card.description"
       :price="card.price"
       basket
-      @click-delete="delCardfromBasket(card)"
+      @click-delete="deleteCardfromBasket(item.id)"
     ></CardProduct>
   </main>
 
@@ -64,8 +64,8 @@ export default {
       return store.getters.getBasketProducts
     })
 
-    const deleteCardfromBasket = (val) => {
-      console.log(val)
+    const deleteCardfromBasket = (id) => {
+      store.commit('SetRemoveBasket', id)
     }
 
     const basketSum = computed(() => {

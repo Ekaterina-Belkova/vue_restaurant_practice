@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid'
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 
@@ -88,6 +89,13 @@ export default {
     ])
 
     const addCardtoBasket = (val) => {
+      console.log('uuidv4:', uuidv4())
+      // const item = {
+      //   id: val.id,
+      //   idx: uuidv4(),
+      //   item: val.item,
+      //   price: val.price
+      // }
       store.commit('SetPushBasketProducts', val)
     }
     return {
