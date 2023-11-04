@@ -34,7 +34,7 @@
 
       <AddButton
         v-if="!basket"
-        @click="$emit('click-plus')"/>
+        @click.stop="$emit('click-plus')"/>
 
       <DeleteButton
         v-else

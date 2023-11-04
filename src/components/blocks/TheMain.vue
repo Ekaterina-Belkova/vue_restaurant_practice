@@ -7,6 +7,7 @@
       :item="card.item"
       :description="card.description"
       :price="card.price"
+      @click="goTo(card.id)"
       @click-plus="addCardtoBasket(card)"
     ></CardProduct>
   </main>
@@ -16,6 +17,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 import CardProduct from '@/components/elements/CardProduct'
 
@@ -28,6 +30,7 @@ export default {
   },
   setup () {
     const store = useStore()
+    const router = useRouter()
 
     const products = ref([
       {
@@ -98,9 +101,16 @@ export default {
       // }
       store.commit('SetPushBasketProducts', val)
     }
+
+    const goTo = (id) => {
+      console.log('Перенаправить', router)
+      router.push(`/${id}`)
+    }
+
     return {
       products,
-      addCardtoBasket
+      addCardtoBasket,
+      goTo
     }
   }
 }
