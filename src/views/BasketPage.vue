@@ -19,7 +19,7 @@
       :description="card.description"
       :price="card.price"
       basket
-      @click-plus="addCardtoBasket(card)"
+      @click-delete="delCardfromBasket(card)"
     ></CardProduct>
   </main>
 
@@ -47,7 +47,6 @@ import { useStore } from 'vuex'
 import GoBackBtn from '@/components/ui/GoBackBtn.vue'
 import OrderButton from '@/components/ui/OrderButton.vue'
 import CardProduct from '@/components/elements/CardProduct'
-// import AddButton from '@/components/ui/AddButton.vue'
 
 export default {
   name: 'BasketPage',

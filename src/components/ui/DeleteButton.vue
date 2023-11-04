@@ -1,13 +1,14 @@
 <template>
-  <div class ="addbutton">
+  <div class="deletebutton">
     +
   </div>
 </template>
 
 <script>
+// import { ref } from 'vue'
 
 export default {
-  name: 'AddButton',
+  name: 'DeleteButton',
   components: {
   },
   props: {
@@ -18,19 +19,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.addbutton {
+
+.deletebutton {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid #fff;
   font-size: 25px;
+  color: #D58C51;
+  border: 2px solid #D58C51;
+  transform: rotate(45deg);
+  cursor: pointer;
 }
 
-.addbutton:hover {
-  background: #D58C51;
-}
 </style>

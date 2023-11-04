@@ -33,21 +33,25 @@
       </span>
 
       <AddButton
-        :class="{
-        'addbutton': true,
-        'addbutton_basket': basket }"
+        v-if="!basket"
         @click="$emit('click-plus')"/>
+
+      <DeleteButton
+        v-else
+        @click="$emit('click-delete')"/>
     </span>
   </div>
 </template>
 
 <script>
 import AddButton from '@/components/ui/AddButton.vue'
+import DeleteButton from '@/components/ui/DeleteButton.vue'
 
 export default {
   name: 'CardProduct',
   components: {
-    AddButton
+    AddButton,
+    DeleteButton
   },
   props: {
     urlImg: {
