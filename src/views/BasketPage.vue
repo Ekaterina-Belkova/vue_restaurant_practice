@@ -19,7 +19,7 @@
       :description="card.description"
       :price="card.price"
       basket
-      @click-delete="deleteCardfromBasket(item.id)"
+      @click-delete="deleteCardfromBasket(card.idx)"
     ></CardProduct>
   </main>
 
@@ -65,6 +65,7 @@ export default {
     })
 
     const deleteCardfromBasket = (id) => {
+      console.log('deleteCardfromBasket', deleteCardfromBasket)
       store.commit('SetRemoveBasket', id)
     }
 
@@ -101,7 +102,7 @@ export default {
 }
 
 .basketmain {
-  padding-left: 15vw;
+  padding: 0 15vw 0 15vw;
 }
 
 .basketfooter {

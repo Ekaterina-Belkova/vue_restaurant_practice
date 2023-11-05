@@ -93,13 +93,14 @@ export default {
 
     const addCardtoBasket = (val) => {
       console.log('uuidv4:', uuidv4())
-      // const item = {
-      //   id: val.id,
-      //   idx: uuidv4(),
-      //   item: val.item,
-      //   price: val.price
-      // }
-      store.commit('SetPushBasketProducts', val)
+      const item = {
+        id: val.id,
+        idx: uuidv4(),
+        item: val.item,
+        price: val.price,
+        url: val.url
+      }
+      store.commit('SetPushBasketProducts', item)
     }
 
     const goTo = (id) => {

@@ -62,7 +62,7 @@ export default {
     SetRemoveBasket (state, val) {
       console.log('SetRemoveBasket', val)
       state.BasketProducts = state.BasketProducts.filter((item) => {
-        return item.id !== val
+        return item.idx !== val
       })
     }
   },
