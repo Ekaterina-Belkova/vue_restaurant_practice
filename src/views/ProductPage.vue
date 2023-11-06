@@ -76,7 +76,6 @@ export default {
   background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url("../assets/bg-product.jpg");
   background-size: cover;
   height: 100vh;
-
 }
 .productheader {
   display: flex;
