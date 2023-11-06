@@ -13,8 +13,8 @@ export default {
     }
   },
   actions: {
-    setCurrentProduct ({ state }) {
-      state.CurrentProduct = products
+    setCurrentProduct ({ state }, idx) {
+      state.CurrentProduct = products[idx]
     }
   }
 }
