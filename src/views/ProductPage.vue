@@ -23,11 +23,11 @@
     </header>
 
     <main class="productmain">
-      {{ CurrentProduct }}
+      <!-- {{ CurrentProduct }} -->
 
       <div class="productmain__container">
         <div class="productmain__container-img">
-          {{ CurrentProduct.url }}
+          <img :src="CurrentProduct.url" class="productmain__container-img__link"/>
         </div>
 
         <h2 class="productmain__container-title">
@@ -158,10 +158,34 @@ grid-template-columns: repeat(2, 1fr);
 grid-template-rows: repeat(3, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
+
+@media screen and (max-width: 1100px) {
+    padding-left: 0;
+    padding-right: 10vh;
+  }
+
+  @media screen and (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .productmain__container-img {
   grid-area: 1 / 1 / 4 / 2;
+  padding-left: 10vh;
+
+  @media screen and (max-width: 1100px) {
+    padding-left: 0;
+    padding-right: 10vh;
+  }
+}
+
+.productmain__container-img__link {
+  width: 60vh;
+
+  @media screen and (max-width: 1100px) {
+    width: 40vh;
+  }
 }
 .productmain__container-title {
   grid-area: 1 / 2 / 2 / 3;

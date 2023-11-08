@@ -1,43 +1,45 @@
 <template>
-  <header class="basketheader">
-    <router-link to="/">
-      <GoBackBtn />
-    </router-link>
+  <div class="basket">
+    <header class="basketheader">
+      <router-link to="/">
+        <GoBackBtn />
+      </router-link>
 
-    <h2 class="basketheader__title">
-      Корзина с выбранными товарами
-    </h2>
-  </header>
+      <h2 class="basketheader__title">
+        Корзина с выбранными товарами
+      </h2>
+    </header>
 
-  <main class="basketmain">
-    <!-- {{ basketProducts }} -->
-    <CardProduct
-      v-for="(card, idx) in basketProducts"
-      :key="idx"
-      :urlImg="card.url"
-      :item="card.item"
-      :description="card.description"
-      :price="card.price"
-      basket
-      @click-delete="deleteCardfromBasket(card.idx)"
-    ></CardProduct>
-  </main>
+    <main class="basketmain">
+      <!-- {{ basketProducts }} -->
+      <CardProduct
+        v-for="(card, idx) in basketProducts"
+        :key="idx"
+        :urlImg="card.url"
+        :item="card.item"
+        :description="card.description"
+        :price="card.price"
+        basket
+        @click-delete="deleteCardfromBasket(card.idx)"
+      ></CardProduct>
+    </main>
 
-  <footer class="basketfooter">
-    <hr class="basketfooter__line">
+    <footer class="basketfooter">
+      <hr class="basketfooter__line">
 
-    <div class="basketfooter__container">
-      <span class="basketfooter__container-total">
-        <h3 class="bbasketfooter__container-total__title">
-          Заказ на сумму:
-        </h3>
-        <h3 class="basketfooter__container-total__title">
-          {{ basketSum }} ₽
-        </h3>
-      </span>
-      <OrderButton />
-    </div>
-  </footer>
+      <div class="basketfooter__container">
+        <span class="basketfooter__container-total">
+          <h3 class="bbasketfooter__container-total__title">
+            Заказ на сумму:
+          </h3>
+          <h3 class="basketfooter__container-total__title">
+            {{ basketSum }} ₽
+          </h3>
+        </span>
+        <OrderButton />
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -87,6 +89,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.basket {
+  padding-bottom: 85px;
+}
 .basketheader {
   display: flex;
   align-items: center;
@@ -103,6 +109,11 @@ export default {
 
 .basketmain {
   padding: 0 15vw 0 15vw;
+
+  @media screen and (max-width: 1250px) {
+    padding-left: 10vh;
+    padding-right: 10vh;
+  }
 }
 
 .basketfooter {

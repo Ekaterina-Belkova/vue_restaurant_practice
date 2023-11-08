@@ -110,6 +110,10 @@ export default {
   height: auto;
   border: none;
   margin-bottom: 10px;
+
+  @media screen and (max-width: 1150px) {
+    width: 100vh;
+  }
 }
 
 .preview_basket {
@@ -146,7 +150,7 @@ export default {
 }
 
 .card__footer-basket {
-  justify-content:flex-end;
+  justify-content: flex-end;
   gap: 15px;
 }
 

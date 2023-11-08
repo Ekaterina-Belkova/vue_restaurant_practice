@@ -145,7 +145,8 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 35px 20px;
-  justify-content: center
+  justify-content: center;
+  padding-bottom: 25px;
   // width: 100vw;
   // height: 100vh;
 }
