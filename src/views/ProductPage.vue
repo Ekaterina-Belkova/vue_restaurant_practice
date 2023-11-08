@@ -18,7 +18,10 @@
         <router-link to="/basket">
           <busketIcon />
         </router-link>
-        <ExitButton />
+
+        <router-link to="/auth">
+          <ExitButton />
+        </router-link>
       </div>
     </header>
 
@@ -174,7 +177,7 @@ grid-row-gap: 0px;
   grid-area: 1 / 1 / 4 / 2;
   padding-left: 10vh;
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1250px) {
     padding-left: 0;
     padding-right: 10vh;
   }
@@ -183,8 +186,12 @@ grid-row-gap: 0px;
 .productmain__container-img__link {
   width: 60vh;
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1350px) {
     width: 40vh;
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: 20vh;
   }
 }
 .productmain__container-title {
