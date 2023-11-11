@@ -1,11 +1,13 @@
 <template>
-  <div class="gobackbutton">
+  <div class="gobackbutton"
+  @click="goBack">
     ←
   </div>
 </template>
 
 <script>
 // import { ref } from 'vue'
+import router from '@/router'
 
 export default {
   name: 'GoBackBtn',
@@ -14,6 +16,13 @@ export default {
   props: {
   },
   setup () {
+    const goBack = () => {
+      router.go(-1)
+    }
+
+    return {
+      goBack
+    }
   }
 }
 </script>

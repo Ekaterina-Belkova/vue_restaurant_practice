@@ -1,9 +1,7 @@
 <template>
   <div class="product">
     <header class="productheader">
-      <router-link to="/">
         <GoBackBtn />
-      </router-link>
 
       <div class="productheader_container">
         <div class="productheader__container-items">

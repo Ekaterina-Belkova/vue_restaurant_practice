@@ -1,9 +1,7 @@
 <template>
   <div class="basket">
     <header class="basketheader">
-      <router-link to="/">
         <GoBackBtn />
-      </router-link>
 
       <h2 class="basketheader__title">
         Корзина с выбранными товарами
@@ -21,6 +19,7 @@
         :price="card.price"
         basket
         @click-delete="deleteCardfromBasket(card.idx)"
+        @click="goTo(card.id)"
       ></CardProduct>
     </main>
 
@@ -45,6 +44,7 @@
 <script>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+import router from '@/router'
 
 import GoBackBtn from '@/components/ui/GoBackBtn.vue'
 import OrderButton from '@/components/ui/OrderButton.vue'
@@ -79,10 +79,16 @@ export default {
       return sum
     })
 
+    const goTo = (id) => {
+      console.log('Перенаправить', router)
+      router.push(`/${id}`)
+    }
+
     return {
       basketProducts,
       deleteCardfromBasket,
-      basketSum
+      basketSum,
+      goTo
     }
   }
 }
