@@ -13,8 +13,12 @@ export default {
     }
   },
   actions: {
-    setCurrentProduct ({ state }, idx) {
-      state.CurrentProduct = products[idx]
+    setCurrentProduct ({ commit }, id) {
+      products.forEach((item) => {
+        if (item.id === +id) {
+          commit('SetCurrentProduct', item)
+        }
+      })
     }
   }
 }
