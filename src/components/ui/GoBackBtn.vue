@@ -1,7 +1,7 @@
 <template>
   <div class="gobackbutton"
   @click="goBack">
-    ←
+    <i class="gg-arrow-left"></i>
   </div>
 </template>
 
@@ -42,6 +42,37 @@ export default {
 
 .gobackbutton:hover {
   background: #D58C51;
+}
+
+.gg-arrow-left {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 19px;
+  height: 22px
+}
+.gg-arrow-left::after,
+.gg-arrow-left::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px
+}
+.gg-arrow-left::after {
+  width: 7px;
+  height: 8px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  transform: rotate(45deg);
+  bottom: 7px
+}
+.gg-arrow-left::before {
+  width: 15px;
+  height: 2px;
+  bottom: 10px;
+  background: currentColor
 }
 
 </style>

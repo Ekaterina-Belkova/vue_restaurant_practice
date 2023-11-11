@@ -38,7 +38,7 @@
 
       <DeleteButton
         v-else
-        @click="$emit('click-delete')"/>
+        @click.stop="$emit('click-delete')"/>
     </span>
   </div>
 </template>
