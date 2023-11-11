@@ -6,6 +6,10 @@
       <h2 class="basketheader__title">
         Корзина с выбранными товарами
       </h2>
+
+      <router-link class="basketheader__exit" to="/auth">
+        <ExitButtongit/>
+      </router-link>
     </header>
 
     <main class="basketmain">
@@ -49,13 +53,15 @@ import router from '@/router'
 import GoBackBtn from '@/components/ui/GoBackBtn.vue'
 import OrderButton from '@/components/ui/OrderButton.vue'
 import CardProduct from '@/components/elements/CardProduct'
+import ExitButton from '@/components/ui/ExitButton.vue'
 
 export default {
   name: 'BasketPage',
   components: {
     GoBackBtn,
     OrderButton,
-    CardProduct
+    CardProduct,
+    ExitButton
   },
   props: {
   },
@@ -104,6 +110,7 @@ export default {
   align-items: center;
   height: 100px;
   padding-left: 15vw;
+  // gap: 80px;
 }
 .basketheader__title {
   padding-left: 63px;
@@ -111,6 +118,10 @@ export default {
   text-transform: uppercase;
   font-size: 31px;
   font-weight: 700;
+}
+
+.basketheader__exit {
+  padding-left: 100px;
 }
 
 .basketmain {

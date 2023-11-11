@@ -17,6 +17,10 @@
       <router-link to="/basket">
         <busketIcon />
       </router-link>
+
+      <router-link to="/auth">
+        <ExitButton />
+      </router-link>
     </div>
 
   </header>
@@ -27,11 +31,13 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 
 import busketIcon from '@/components/icons/busketIcon.vue'
+import ExitButton from '@/components/ui/ExitButton.vue'
 
 export default {
   name: 'TheHeader',
   components: {
-    busketIcon
+    busketIcon,
+    ExitButton
   },
   props: {
   },
