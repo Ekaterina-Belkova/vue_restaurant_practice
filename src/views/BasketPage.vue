@@ -109,6 +109,10 @@ export default {
   height: 100px;
   padding-left: 15vw;
   // gap: 80px;
+
+  @media screen and (max-width: 500px) {
+    padding-left: 5px;
+  }
 }
 .basketheader__title {
   padding-left: 63px;
@@ -116,19 +120,28 @@ export default {
   text-transform: uppercase;
   font-size: 31px;
   font-weight: 700;
+
+  @media screen and (max-width: 500px) {
+    padding-left: 5px;
+    font-size: 15px;
+  }
 }
 
 .basketheader__exit {
-  padding-left: 100px;
+  padding: 0 10vh 0 100px;
+
+  @media screen and (max-width: 500px) {
+    padding: 0;
+  }
 }
 
 .basketmain {
   padding: 0 15vw 0 15vw;
 
-  @media screen and (max-width: 1250px) {
-    padding-left: 10vh;
-    padding-right: 10vh;
-  }
+  // @media screen and (max-width: 1250px) {
+  //   padding-left: 10vh;
+  //   padding-right: 10vh;
+  // }
 }
 
 .basketfooter {
@@ -149,6 +162,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding-right: 15vw;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .basketfooter__container-total {

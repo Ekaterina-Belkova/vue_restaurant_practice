@@ -50,7 +50,7 @@
             :revers="checkBasket > 0"
             @click-plus="addCardToBasket(card)"/>
 
-            {{ checkBasket }}
+            <!-- {{ checkBasket }} -->
           </span>
         </div>
       </div>
@@ -142,6 +142,10 @@ export default {
   align-items: center;
   height: 100px;
   padding: 0 60px 0 60px;
+
+  @media screen and (max-width: 500px) {
+    padding: 0 3px 0 3px;
+  }
 }
 
 .productheader_container {
@@ -159,6 +163,10 @@ export default {
 
 .productmain {
   padding-left: 140px;
+
+  @media screen and (max-width: 500px) {
+    padding-left: 5vh;
+  }
 }
 
 .productmain__container {
@@ -173,9 +181,10 @@ grid-row-gap: 0px;
     padding-right: 10vh;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     display: flex;
     flex-direction: column;
+    gap: 5vh;
   }
 }
 
@@ -198,6 +207,10 @@ grid-row-gap: 0px;
 
   @media screen and (max-width: 1100px) {
     width: 20vh;
+  }
+
+  @media screen and (max-width: 850px) {
+    width: 30vh;
   }
 }
 .productmain__container-title {

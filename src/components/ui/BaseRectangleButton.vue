@@ -37,6 +37,7 @@ export default {
   border: none;
   color: black;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .rectanglebtn:hover {
@@ -52,6 +53,7 @@ export default {
   border: solid 1px #D58C51;
   color: #D58C51;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .rectanglebtn_revers:hover {

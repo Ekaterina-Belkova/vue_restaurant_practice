@@ -95,6 +95,7 @@ export default {
   color: #FFF;
   font-size: 17px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -106,19 +107,35 @@ export default {
 .card_basket {
   flex-direction: row;
   padding: 10px;
-  width: 150vh;
+  width: 100vh;
   height: auto;
   border: none;
   margin-bottom: 10px;
 
-  @media screen and (max-width: 1150px) {
-    width: 100vh;
+  @media screen and (max-width: 820px) {
+    width: 50vh;
+  }
+
+  @media screen and (max-width: 820px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 252px;
+    border: 1px solid #D58C51;
+    margin-bottom: 10px;
   }
 }
 
 .preview_basket {
   width: 122px;
   height: 122px;
+
+  @media screen and (max-width: 500px) {
+    width: auto;
+    padding-bottom: 20px;
+  }
 }
 
 .item {
@@ -129,6 +146,11 @@ export default {
 .item_basket {
   position: absolute;
   z-index: 1;
+
+  @media screen and (max-width: 500px) {
+    width: auto;
+    padding-top: 20px;
+  }
 }
 
 .description {
@@ -152,6 +174,11 @@ export default {
 .card__footer-basket {
   justify-content: flex-end;
   gap: 15px;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .price_basket {

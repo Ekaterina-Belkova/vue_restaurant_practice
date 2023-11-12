@@ -71,6 +71,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   height: 100px;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .header__title {

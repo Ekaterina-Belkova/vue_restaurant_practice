@@ -38,6 +38,7 @@ export default {
   border-radius: 50%;
   border: 2px solid #fff;
   font-size: 11px;
+  cursor: pointer;
 }
 
 .gobackbutton:hover {
