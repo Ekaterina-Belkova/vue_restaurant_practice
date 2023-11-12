@@ -8,7 +8,7 @@
       </h2>
 
       <router-link class="basketheader__exit" to="/auth">
-        <ExitButtongit/>
+        <ExitButton/>
       </router-link>
     </header>
 

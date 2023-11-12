@@ -43,9 +43,14 @@
           <span class="productmain__container-footer__price">
             {{ CurrentProduct.price }} ₽
           </span>
+
           <span class="productmain__container-footer__rectangle">
-            <AddRectangleBtn
-            @click-plus="addCardtoBasket(card)"/>
+            <BaseRectangleButton
+            :text-btn="checkBasket === 0 ? 'В корзину' : 'Удалить'"
+            :revers="checkBasket > 0"
+            @click-plus="addCardToBasket(card)"/>
+
+            {{ checkBasket }}
           </span>
         </div>
       </div>
@@ -57,12 +62,11 @@
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
-import { v4 as uuidv4 } from 'uuid'
 
 import GoBackBtn from '@/components/ui/GoBackBtn.vue'
 import busketIcon from '@/components/icons/busketIcon.vue'
 import ExitButton from '@/components/ui/ExitButton.vue'
-import AddRectangleBtn from '@/components/ui/AddRectangleBtn.vue'
+import BaseRectangleButton from '@/components/ui/BaseRectangleButton.vue'
 
 export default {
   name: 'ProductPage',
@@ -70,7 +74,7 @@ export default {
     GoBackBtn,
     busketIcon,
     ExitButton,
-    AddRectangleBtn
+    BaseRectangleButton
   },
   props: {
   },
@@ -99,23 +103,29 @@ export default {
       return store.getters.getCurrentProduct
     })
 
-    const addCardtoBasket = (val) => {
-      console.log('uuidv4:', uuidv4())
-      const item = {
-        id: val.id,
-        idx: uuidv4(),
-        item: val.item,
-        price: val.price,
-        url: val.url
+    const checkBasket = computed(() => {
+      const newArr = store.getters.getBasketProducts.filter((item) => {
+        return item.id === route.params.id
+      })
+      console.log('newArr', newArr)
+      console.log('store.getters.getBasketProducts', store.getters.getBasketProducts)
+      return newArr.length
+    })
+
+    const addCardToBasket = (val) => {
+      if (checkBasket.value === 0) {
+        store.commit('SetPushBasketProducts', val)
+      } else {
+        store.commit('SetRemoveBasketProducts', val)
       }
-      store.commit('SetPushBasketProducts', item)
     }
 
     return {
       basketProducts,
       basketSum,
       CurrentProduct,
-      addCardtoBasket
+      addCardToBasket,
+      checkBasket
     }
   }
 }
