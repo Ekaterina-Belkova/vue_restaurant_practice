@@ -8,7 +8,7 @@
       </h2>
 
       <router-link class="basketheader__exit" to="/auth">
-        <ExitButton/>
+        <BaseRectangleButton text-btn="Выйти" revers/>
       </router-link>
     </header>
 
@@ -39,7 +39,7 @@
             {{ basketSum }} ₽
           </h3>
         </span>
-        <OrderButton />
+        <BaseRectangleButton text-btn="Оформить заказ"/>
       </div>
     </footer>
   </div>
@@ -51,17 +51,15 @@ import { useStore } from 'vuex'
 import router from '@/router'
 
 import GoBackBtn from '@/components/ui/GoBackBtn.vue'
-import OrderButton from '@/components/ui/OrderButton.vue'
 import CardProduct from '@/components/elements/CardProduct'
-import ExitButton from '@/components/ui/ExitButton.vue'
+import BaseRectangleButton from '@/components/ui/BaseRectangleButton.vue'
 
 export default {
   name: 'BasketPage',
   components: {
     GoBackBtn,
-    OrderButton,
     CardProduct,
-    ExitButton
+    BaseRectangleButton
   },
   props: {
   },

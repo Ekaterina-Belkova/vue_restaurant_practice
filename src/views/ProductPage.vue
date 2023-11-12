@@ -18,7 +18,7 @@
         </router-link>
 
         <router-link to="/auth">
-          <ExitButton />
+          <BaseRectangleButton text-btn="Выйти" revers/>
         </router-link>
       </div>
     </header>
@@ -65,7 +65,6 @@ import { useRoute } from 'vue-router'
 
 import GoBackBtn from '@/components/ui/GoBackBtn.vue'
 import busketIcon from '@/components/icons/busketIcon.vue'
-import ExitButton from '@/components/ui/ExitButton.vue'
 import BaseRectangleButton from '@/components/ui/BaseRectangleButton.vue'
 
 export default {
@@ -73,7 +72,6 @@ export default {
   components: {
     GoBackBtn,
     busketIcon,
-    ExitButton,
     BaseRectangleButton
   },
   props: {

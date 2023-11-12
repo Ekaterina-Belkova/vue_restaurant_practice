@@ -19,7 +19,7 @@
       </router-link>
 
       <router-link to="/auth">
-        <ExitButton />
+        <BaseRectangleButton text-btn="Выйти" revers/>
       </router-link>
     </div>
 
@@ -31,13 +31,13 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 
 import busketIcon from '@/components/icons/busketIcon.vue'
-import ExitButton from '@/components/ui/ExitButton.vue'
+import BaseRectangleButton from '@/components/ui/BaseRectangleButton.vue'
 
 export default {
   name: 'TheHeader',
   components: {
     busketIcon,
-    ExitButton
+    BaseRectangleButton
   },
   props: {
   },

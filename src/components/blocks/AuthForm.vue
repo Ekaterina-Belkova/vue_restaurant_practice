@@ -24,7 +24,9 @@
     />
     {{ passwordValue }}
 
-    <LoginButton />
+    <router-link to="/">
+    <BaseRectangleButton text-btn="Войти"/>
+    </router-link>
   </form>
 </template>
 
@@ -32,13 +34,13 @@
 import { ref } from 'vue'
 
 import BaseInput from '@/components/ui/BaseInput.vue'
-import LoginButton from '@/components/ui/LoginButton.vue'
+import BaseRectangleButton from '@/components/ui/BaseRectangleButton.vue'
 
 export default {
   name: 'AuthForm',
   components: {
     BaseInput,
-    LoginButton
+    BaseRectangleButton
   },
   props: {
   },
