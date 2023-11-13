@@ -1,11 +1,11 @@
 <template>
   <form action="" class="form">
-    <span class="form__switch">
-      Зарегистрироваться
+    <span class="form__switch" @click.prevent="AuthReg()">
+      {{ formReg === 'reg' ? 'Зарегистрироваться' : 'Авторизоваться' }}
     </span>
 
     <h1 class="form__title">
-      Вход
+      {{ formReg === 'reg' ? 'Вход' : 'Регистрация' }}
     </h1>
 
     <BaseInput
@@ -34,7 +34,7 @@
     </span>
 
     <router-link to="/">
-    <BaseRectangleButton text-btn="Войти"/>
+      <BaseRectangleButton :text-btn="formReg === 'reg' ? 'Войти' : 'Зарегистрироваться'"/>
     </router-link>
   </form>
 </template>
@@ -57,6 +57,17 @@ export default {
     const emailValue = ref('')
     const passwordValue = ref('')
 
+    const formReg = ref('reg')
+
+    const AuthReg = () => {
+      // formReg.value = !formReg.value
+      if (formReg.value === 'reg') {
+        formReg.value = 'auth'
+      } else {
+        formReg.value = 'reg'
+      }
+    }
+
     const onInputChange = (event) => {
       console.log(event.target.type)
       if (event.target.type === 'text') {
@@ -69,7 +80,9 @@ export default {
     return {
       onInputChange,
       emailValue,
-      passwordValue
+      passwordValue,
+      formReg,
+      AuthReg
     }
   }
 }
