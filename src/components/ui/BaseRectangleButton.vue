@@ -2,7 +2,8 @@
   <button :class="{
     'rectanglebtn': !revers,
     'rectanglebtn_revers': revers
-  }">
+    }"
+    :type="typeBtn">
     {{ textBtn }}
   </button>
 </template>
@@ -22,6 +23,10 @@ export default {
     revers: {
       type: Boolean,
       default: false
+    },
+    typeBtn: {
+      type: String,
+      default: 'button'
     }
   },
   setup () {

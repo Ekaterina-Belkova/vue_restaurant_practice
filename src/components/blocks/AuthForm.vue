@@ -1,5 +1,5 @@
 <template>
-  <form action="" class="form">
+  <form class="form" @submit.prevent="onSubmitForm">
     <span class="form__switch" @click.prevent="AuthReg()">
       {{ formReg === 'reg' ? 'Зарегистрироваться' : 'Авторизоваться' }}
     </span>
@@ -9,18 +9,18 @@
     </h1>
 
     <BaseInput
+      placeholder-input="логин"
       type-input="text"
-      error-message="Поле не должно быть пустым"
+      :error-message="emailMessage"
       @input-change="onInputChange"
     />
-    <!-- {{ emailValue }} -->
 
     <BaseInput
+      placeholder-input="пароль"
       type-input="password"
-      error-message="Поле не должно быть пустым"
+      :error-message="passwordMessage"
       @input-change="onInputChange"
     />
-    <!-- {{ passwordValue }} -->
 
     <div class="form__footer">
       <input class="form__checkbox" type="checkbox" name="check">
@@ -33,14 +33,16 @@
       Логин или пароль неверен
     </span>
 
-    <router-link to="/">
-      <BaseRectangleButton :text-btn="formReg === 'reg' ? 'Войти' : 'Зарегистрироваться'"/>
-    </router-link>
+    <!-- <router-link to="/"> -->
+      <BaseRectangleButton
+      type-btn="submit"
+      :text-btn="formReg === 'reg' ? 'Войти' : 'Зарегистрироваться'"/>
+    <!-- </router-link> -->
   </form>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 import BaseInput from '@/components/ui/BaseInput.vue'
 import BaseRectangleButton from '@/components/ui/BaseRectangleButton.vue'
@@ -56,6 +58,9 @@ export default {
   setup () {
     const emailValue = ref('')
     const passwordValue = ref('')
+
+    const emailMessage = ref('')
+    const passwordMessage = ref('')
 
     const formReg = ref('reg')
 
@@ -77,12 +82,32 @@ export default {
       }
     }
 
+    const ValidForm = computed(() => {
+      if (emailValue.value.trim() === '') {
+        return false
+      } else {
+        return true
+      }
+    })
+
+    const onSubmitForm = (event) => {
+      console.log(event)
+      if (ValidForm.value) {
+        console.log('отправка на сервер произошла')
+      } else {
+        emailMessage.value = 'поле не должно быть пустым'
+      }
+    }
+
     return {
-      onInputChange,
       emailValue,
       passwordValue,
       formReg,
-      AuthReg
+      AuthReg,
+      onInputChange,
+      onSubmitForm,
+      emailMessage,
+      passwordMessage
     }
   }
 }

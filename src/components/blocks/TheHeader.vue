@@ -19,7 +19,9 @@
       </router-link>
 
       <router-link to="/auth">
-        <BaseRectangleButton text-btn="Выйти" revers/>
+        <BaseRectangleButton
+        text-btn="Выйти"
+        revers/>
       </router-link>
     </div>
 

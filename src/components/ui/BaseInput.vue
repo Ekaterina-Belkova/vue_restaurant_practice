@@ -1,8 +1,12 @@
 <template>
   <label class="label" for="input">
     <input
-      class="input"
+      :class="{
+        'input': true,
+        'input__error': errorMessage.length > 0
+      }"
       :type="typeInput"
+      :placeholder="placeholderInput"
       name="input"
       v-model="InputValue"
       @input="$emit('inputChange', $event)"
@@ -27,6 +31,10 @@ export default {
       default: ''
     },
     typeInput: {
+      type: String,
+      default: ''
+    },
+    placeholderInput: {
       type: String,
       default: ''
     }
@@ -57,6 +65,10 @@ export default {
   font-family: Montserrat;
   font-size: 16px;
   font-weight: 400;
+}
+
+.input__error {
+  border-color:#FF0B0B;
 }
 
 .message {
