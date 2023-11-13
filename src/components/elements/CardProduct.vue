@@ -107,13 +107,17 @@ export default {
 .card_basket {
   flex-direction: row;
   padding: 10px;
-  width: 100vh;
+  width: 150vh;
   height: auto;
   border: none;
   margin-bottom: 10px;
 
-  @media screen and (max-width: 820px) {
-    width: 50vh;
+  // @media screen and (max-width: 820px) {
+  //   width: 50vh;
+  // }
+
+    @media screen and (max-width: 1300px) {
+    width: 100vh;
   }
 
   @media screen and (max-width: 820px) {

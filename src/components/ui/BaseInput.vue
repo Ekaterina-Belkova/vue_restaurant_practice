@@ -10,6 +10,7 @@
       name="input"
       v-model="InputValue"
       @input="$emit('inputChange', $event)"
+      @blur="$emit('blurInput', $event)"
     >
 
     <span class="message">

@@ -13,6 +13,7 @@
       type-input="text"
       :error-message="emailMessage"
       @input-change="onInputChange"
+      @blur-input="onBlur"
     />
 
     <BaseInput
@@ -20,6 +21,7 @@
       type-input="password"
       :error-message="passwordMessage"
       @input-change="onInputChange"
+      @blur-input="onBlur"
     />
 
     <div class="form__footer">
@@ -29,9 +31,9 @@
       </span>
     </div>
 
-    <span class="form__error">
+    <!-- <span class="form__error">
       Логин или пароль неверен
-    </span>
+    </span> -->
 
     <!-- <router-link to="/"> -->
       <BaseRectangleButton
@@ -90,10 +92,28 @@ export default {
       }
     })
 
+    const onBlur = (e) => {
+      console.log('e:', e)
+      if (e.target.type === '') {
+        if (e.target.type === 'text') {
+          emailMessage.value = 'поле не должно быть пустым'
+        } else if (e.target.type === 'password') {
+          passwordMessage.value = 'поле не должно быть пустым'
+        }
+      } else {
+        if (e.target.type === 'text') {
+          emailMessage.value = ''
+        } else if (e.target.type === 'password') {
+          passwordMessage.value = ''
+        }
+      }
+    }
+
     const onSubmitForm = (event) => {
       console.log(event)
       if (ValidForm.value) {
         console.log('отправка на сервер произошла')
+        emailMessage.value = ''
       } else {
         emailMessage.value = 'поле не должно быть пустым'
       }
@@ -107,7 +127,8 @@ export default {
       onInputChange,
       onSubmitForm,
       emailMessage,
-      passwordMessage
+      passwordMessage,
+      onBlur
     }
   }
 }
